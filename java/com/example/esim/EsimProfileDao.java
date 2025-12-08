@@ -1,0 +1,18 @@
+package com.example.esim;
+
+import androidx.room.Dao;
+import androidx.room.Insert;
+import androidx.room.Query;
+import java.util.List;
+
+@Dao
+public interface EsimProfileDao {
+    @Insert
+    void insert(EsimProfile profile);
+
+    @Query("SELECT * FROM esim_profiles")
+    List<EsimProfile> getAllProfiles();
+
+    @Query("SELECT * FROM esim_profiles WHERE id = :id")
+    EsimProfile getProfileById(int id);
+}
